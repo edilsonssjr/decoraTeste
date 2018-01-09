@@ -1,0 +1,25 @@
+<div fxLayout="column" fxFlex>
+
+  <mat-toolbar class="bg">
+    <mat-toolbar-row>
+      <img class="logo" src="{{ logo }}">
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlex>
+    <mat-card>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Favorite food" value="Sushi">
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Leave a comment"></textarea>
+            </mat-form-field>
+          </form>
+    </mat-card>
+  </mat-sidenav-container>
+
+  <button mat-button mat-raised-button color="primary">Entrar</button>
+
+</div>
