@@ -11,3 +11,10 @@
 .example-container > * {
   width: 100%;
 }
+.login{
+  width: 500px;
+  margin: 0 auto;
+}
+.img-login{
+  width: 30%;
+}

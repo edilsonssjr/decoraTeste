@@ -1,0 +1,41 @@
+<div>
+
+
+  <mat-card>Simple card</mat-card>
+
+  <form>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput [(ngModel)]="user.cpf" name="cpf" placeholder="Cpf" type="number">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [(ngModel)]="user.nome" name="nome" placeholder="Nome">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [(ngModel)]="user.email" name="email" placeholder="Digite seu email">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [(ngModel)]="user.password" name="password" placeholder="Enter your password">
+      </mat-form-field>
+
+      <section class="example-section">
+        <label class="example-margin">Perfil:</label>
+        <mat-radio-group [(ngModel)]="user.perfil" name="perfil">
+          <mat-radio-button class="example-margin" value="admin">Admin</mat-radio-button>
+          <mat-radio-button class="example-margin" value="user">User</mat-radio-button>
+        </mat-radio-group>
+      </section>
+    </div>
+
+    <button mat-button mat-raised-button color="primary" (click)="submit()">Cadastrar</button>
+
+  </form>
+
+  <a routerLink="/">voltar</a>
+
+
+
+</div>

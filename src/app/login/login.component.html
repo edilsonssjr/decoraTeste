@@ -1,23 +1,23 @@
-<div>
+<div class="login">
 
 
-  <mat-card>Simple card</mat-card>
+  <mat-card><img class="img-login" [src]="logo"></mat-card>
 
-<form (submit) = "loginUser($event)">
+  <form>
     <div class="example-container">
       <mat-form-field>
-        <input matInput placeholder="Email">
+        <input matInput  name="email" placeholder="Email" [(ngModel)] = "user.email">
       </mat-form-field>
 
       <mat-form-field>
-          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-      </mat-form-field> 
+        <input matInput name="password" [(ngModel)] = "user.password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </mat-form-field>
     </div>
 
-  <button mat-button mat-raised-button color="primary" type="submit">Entrar</button>
-  
-</form>
+    <button mat-button mat-raised-button color="primary" (click)="login()">Entrar</button>
+
+  </form>
 
 
 

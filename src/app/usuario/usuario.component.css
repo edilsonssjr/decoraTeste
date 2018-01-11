@@ -1,0 +1,13 @@
+.logo{
+    width: 170px;
+  }
+  .bg{
+    background: #d0d0d0;
+  }
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .example-container > * {
+    width: 100%;
+  }

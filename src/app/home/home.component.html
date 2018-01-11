@@ -1,3 +1,18 @@
 <div class="bg-login">
   home works!
 </div>
+
+search: <input type="text" name="search" [(ngModel)] = "search"> 
+
+
+<mat-list>
+    <mat-list-item *ngFor="let user of users | filter:search">
+      <mat-icon mat-list-icon>note</mat-icon>
+      <p mat-line> {{user.email}} </p>
+      <p mat-line> {{user.perfil}} </p>
+    </mat-list-item>
+  </mat-list>
+
+<a *ngIf="userLogged.perfil == 'admin'" routerLink="/usuario">cadastrar</a>
+
+<a (click)="logout()">logout</a>

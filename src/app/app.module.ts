@@ -1,3 +1,5 @@
+import { FilterPipe } from './filter.pipe';
+import { AuthGuard } from './auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,13 +12,18 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { routing } from './app.routing';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { UserService } from './service/user.service';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    UsuarioComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,7 @@ import { routing } from './app.routing';
     BrowserAnimationsModule,
     routing
   ],
-  providers: [],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 
