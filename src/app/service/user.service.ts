@@ -14,7 +14,7 @@ export class UserService {
   getUsers() {
     let temp: any = localStorage.getItem('users');
     if (temp == null) {
-      this.storeUser('', '', 'admin', 'admin', 'admin');
+      this.storeUser('000', 'admin', 'admin@admin.com', 'admin', 'admin');
     } 
       temp = localStorage.getItem('users');
       this.users = JSON.parse(temp);
@@ -46,6 +46,14 @@ export class UserService {
   getUserLogged(){
     let userLogged:any = localStorage.getItem('userLogged');
     return JSON.parse(userLogged);
+  }
+
+  isAdmin(){
+    let admin:any = JSON.parse(localStorage.getItem('userLogged'));
+    if(admin.perfil == 'admin'){
+      return true;
+    }
+    return false;
   }
 
 

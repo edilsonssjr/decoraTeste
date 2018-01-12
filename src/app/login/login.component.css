@@ -7,14 +7,39 @@
 .example-container {
   display: flex;
   flex-direction: column;
+  background: #fff;
+    border: 1px solid #afafaf;
+    border-top: none;
+    padding: 4%;
+    height: 230px;
 }
 .example-container > * {
   width: 100%;
 }
 .login{
-  width: 500px;
+  width: 400px;
   margin: 0 auto;
+  margin-top: 10%;
 }
 .img-login{
-  width: 30%;
+  width: 60%;
+}
+.form-1{
+  margin-top: 4%;
+}
+
+.btn{
+  margin-top: 7%;
+}
+
+.centro{
+  text-align: center;
+  padding: 2% !important;
+  margin-bottom: 4px;
+}
+
+.invalid{
+  color: red;
+    margin-top: -3%;
+    margin-bottom: 3%;
 }

@@ -10,6 +10,9 @@ import { MaterialModule } from '../material/material.module';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
+  hide = true;
+  logo = 'assets/img/decora.png';
+  userLogged:any;
 
   user = {
     cpf: '',
@@ -25,13 +28,23 @@ export class UsuarioComponent implements OnInit {
   ];
 
   constructor(private userService: UserService, private routing: Router) {
-  
+    if(!this.userService.isAdmin()){
+      this.routing.navigate(['/home']);
+    }
+    this.userLogged = this.userService.getUserLogged();
   }
 
   submit() {
     this.userService.storeUser(this.user.cpf,this.user.nome,this.user.email,this.user.password,this.user.perfil);
     this.routing.navigate(['/home']);
   }
+
+  logout(){
+    localStorage.removeItem('login');
+    localStorage.removeItem('userLogged');
+    this.routing.navigate(['/']);
+  }
+  
 
   ngOnInit() {
   }

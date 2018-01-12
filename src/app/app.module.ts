@@ -1,4 +1,3 @@
-import { FilterPipe } from './filter.pipe';
 import { AuthGuard } from './auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -23,7 +22,6 @@ import { UserService } from './service/user.service';
     LoginComponent,
     HomeComponent,
     UsuarioComponent,
-    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +29,7 @@ import { UserService } from './service/user.service';
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule,
-    routing
+    routing,
   ],
   providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]

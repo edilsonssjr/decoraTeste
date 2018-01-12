@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
     password:''
   }
   
+  loginIncorrect(){
+    
+  }
+
   constructor(private userService:UserService, private routing: Router){
       
   }
@@ -33,8 +37,8 @@ export class LoginComponent implements OnInit {
         this.routing.navigate(['/home']);
         return;
       }
+      this.loginIncorrect();
     }
-    alert('senha incorreta');
   }
 
   ngOnInit() {

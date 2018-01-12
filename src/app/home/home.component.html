@@ -1,18 +1,70 @@
-<div class="bg-login">
-  home works!
-</div>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <span><img class="img-login" [src]="logo"></span>
 
-search: <input type="text" name="search" [(ngModel)] = "search"> 
+    <span class="example-spacer"></span>
+
+    <button mat-button *ngIf="userLogged.perfil == 'admin'" routerLink="/usuario">Cadastrar</button>
+    <button mat-button (click)="logout()">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<br>
+
+
+<div class="example-container mat-elevation-z8">
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+      </mat-form-field>
+    </div>
+  
+    <mat-table #table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="cpf">
+        <mat-header-cell *matHeaderCellDef> cpf </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.cpf}} </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="nome">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.nome}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="password">
+          <mat-header-cell *matHeaderCellDef> Password </mat-header-cell>
+          <mat-cell *matCellDef="let user"> {{user.password}} </mat-cell>
+        </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> email </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="perfil">
+        <mat-header-cell *matHeaderCellDef> perfil </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.perfil}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+<!-- search:
+<input type="text" name="search" [(ngModel)]="search">
 
 
 <mat-list>
-    <mat-list-item *ngFor="let user of users | filter:search">
-      <mat-icon mat-list-icon>note</mat-icon>
-      <p mat-line> {{user.email}} </p>
-      <p mat-line> {{user.perfil}} </p>
-    </mat-list-item>
-  </mat-list>
-
-<a *ngIf="userLogged.perfil == 'admin'" routerLink="/usuario">cadastrar</a>
-
-<a (click)="logout()">logout</a>
+  <mat-list-item *ngFor="let user of users | filter:search">
+    <mat-icon mat-list-icon>note</mat-icon>
+    <p mat-line> {{user.email}} </p>
+    <p mat-line> {{user.perfil}} </p>
+  </mat-list-item>
+</mat-list>
+ -->

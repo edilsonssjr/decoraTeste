@@ -1,21 +1,29 @@
 <div class="login">
 
 
-  <mat-card><img class="img-login" [src]="logo"></mat-card>
+  <mat-card class="centro"><img class="img-login" [src]="logo"></mat-card>
 
-  <form>
+  <form (ngSubmit)="login()" #loginForm="ngForm">
     <div class="example-container">
-      <mat-form-field>
-        <input matInput  name="email" placeholder="Email" [(ngModel)] = "user.email">
+      <mat-form-field class="form-1">
+        <input required matInput id="email" name="email" placeholder="Email" [(ngModel)] = "user.email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel">
+        
       </mat-form-field>
+      <div [hidden]="email.valid || email.pristine"
+      class="invalid">
+      <div [hidden]="!email.hasError('pattern')">email inválido</div>
+       </div>
 
       <mat-form-field>
-        <input matInput name="password" [(ngModel)] = "user.password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+        <input required matInput name="password" [(ngModel)] = "user.password" placeholder="Digite sua senha" [type]="hide ? 'password' : 'text'">
         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
       </mat-form-field>
+
+      <button class="btn" mat-button mat-raised-button color="primary" type="submit" [disabled]="loginForm.form.invalid" >Entrar</button>
     </div>
 
-    <button mat-button mat-raised-button color="primary" (click)="login()">Entrar</button>
+    <p id="a">Login Incorreto</p>
+    
 
   </form>
 
