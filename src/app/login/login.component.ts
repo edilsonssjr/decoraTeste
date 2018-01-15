@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.routing.navigate(['/home']);
         return;
       }
-      this.loginIncorrect();
+     alert("Senha incorreta");
     }
   }
 

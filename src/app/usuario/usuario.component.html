@@ -11,22 +11,26 @@
 
     <mat-card class="centro"><h2>Cadastrar</h2></mat-card>
   
-    <form (ngSubmit)="submit()">
+    <form (ngSubmit)="submit()" #loginForm="ngForm">
       <div class="example-container">
           <mat-form-field>
-              <input matInput [(ngModel)]="user.cpf" name="cpf" placeholder="Cpf" type="number">
+              <input matInput required maxLength=14 [(ngModel)]="user.cpf" name="cpf" placeholder="Cpf" type="number">
             </mat-form-field>
       
             <mat-form-field>
-              <input matInput [(ngModel)]="user.nome" name="nome" placeholder="Nome">
+              <input matInput required [(ngModel)]="user.nome" name="nome" placeholder="Nome">
             </mat-form-field>
       
             <mat-form-field>
-              <input matInput [(ngModel)]="user.email" name="email" placeholder="Digite seu email">
+              <input matInput pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" required [(ngModel)]="user.email" name="email" placeholder="Digite seu email">
             </mat-form-field>
+            <div [hidden]="email.valid || email.pristine"
+            class="invalid">
+            <div [hidden]="!email.hasError('pattern')">email inválido</div>
+             </div>
       
             <mat-form-field>
-              <input matInput [(ngModel)]="user.password" name="password" placeholder="Digite sua senha" [type]="hide ? 'password' : 'text'">
+              <input matInput required [(ngModel)]="user.password" name="password" placeholder="Digite sua senha" [type]="hide ? 'password' : 'text'">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
             </mat-form-field>
       
@@ -38,7 +42,7 @@
               </mat-radio-group>
             </section>
   
-        <button class="btn" mat-button mat-raised-button color="primary" type="submit">Cadastrar</button>
+        <button class="btn" mat-button mat-raised-button color="primary" type="submit" [disabled]="loginForm.form.invalid">Cadastrar</button>
       </div>
   
       
